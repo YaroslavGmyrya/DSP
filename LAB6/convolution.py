@@ -75,6 +75,7 @@ for shift in shifts:
     mul_signal = [tmp_signal[i] * h[i] for i in range(len(timeline))]
     integral.append(np.sum(mul_signal)* dt)
 
+
 plt.plot(shifts, integral)
 plt.ylabel("A, V")
 plt.xlabel("t, s")
