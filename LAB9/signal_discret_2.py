@@ -4,9 +4,9 @@ import math
 
 # discrete and non-discrete signals
 f = 2
-T = 0.4
+T = 0.2
 
-t = np.arange(0, 4, 0.01)
+t = np.arange(0, 4, 0.001)
 t_d = np.arange(0, 4+T, T)
 
 signal = np.cos(2*np.pi*f*t)
@@ -19,7 +19,7 @@ recovery_signal = []
 for m in range(len(t)):
     sum = 0
     for n in range(len(t_d)):
-        sum += signal_d[n] * np.sinc(1/T*(t[m] - n*T))
+        sum += signal_d[n] * np.sinc((1/T)*(t[m] - n*T))
 
     recovery_signal.append(sum)
 
@@ -49,12 +49,13 @@ plt.show()
 
 recovery_signal = []
 tmp = []
-for m in range(len(t)):
+
+for m in range(10):
     sum = 0
     for n in range(len(t_d)):
-        tmp.append(signal_d[n] * np.sinc(1/T*(t[m] - n*T)))
+        tmp.append(signal_d[n] * np.sinc(np.pi/T*(t[m] - n*T)))
 
     recovery_signal.append(np.sum(tmp))
     
-plt.plot(range(len(tmp)), tmp)
+plt.plot(np.arange(0, len(tmp)*T, T), tmp)
 plt.show()
