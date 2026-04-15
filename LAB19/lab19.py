@@ -26,7 +26,7 @@ print("task 2:")
 
 A = [0.25, 1, 2, 4]
 
-N0 = 0.5 * 1e-2
+N0 = 0.5 * 2e-2
 BW = Rb = 100
 
 sigma = N0 * BW
@@ -39,9 +39,7 @@ for a in A:
     r = sq_signal + noise
         
     sample = r[4]
-    
-    print(sample)
-        
+            
     w1 = np.exp(-(sample-a)**2/(2*sigma))
     w2 = np.exp(-(sample-0)**2/(2*sigma))
     
@@ -60,7 +58,7 @@ s2 = -1
 bit = np.random.randint(0, 2, 1)
 symb = 2*bit-1
 
-sigma = 0.2
+sigma = 0
 n = np.random.normal(0, sigma, 1)
 
 r = symb + n
@@ -79,7 +77,7 @@ N = 1000
 bit = np.random.randint(0, 2, N)
 symb = 2*bit-1
 
-sigma = 10
+sigma = 1.3
 n = np.random.normal(0, sigma, N)
 
 r = symb + n
